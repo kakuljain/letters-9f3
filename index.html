@@ -78,11 +78,17 @@ body{
 
 /* 🔼 TALL MONTHS */
 .tall .card{
-  height:360px; /* increased only for selected months */
+  height:360px;
 }
 
+/* DESKTOP HOVER */
 @media(hover:hover){
   .month:hover .card{ transform:rotateY(180deg); }
+}
+
+/* ✅ MOBILE TAP FLIP */
+.month.active .card{
+  transform:rotateY(180deg);
 }
 
 .face{
@@ -319,6 +325,13 @@ function startCountdown(){
     }
   },1000);
 }
+
+/* ✅ MOBILE TAP FLIP JS */
+document.querySelectorAll(".month").forEach(month=>{
+  month.addEventListener("click",()=>{
+    month.classList.toggle("active");
+  });
+});
 </script>
 
 </body>
